@@ -1,0 +1,47 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model List<Books>
+@{
+}
+<div class="form" >
+<form class="login-page" method="get" asp-controller="Books" asp-action="search" style="width:250px" >
+    Enter part of book name
+    <input type="text" name="searchKey" />
+    <button type="submit">search</button>
+
+</form>
+</div>
+<div>
+    <a asp-controller="Books" asp-action="add" style="border:solid"> Add book  </a>
+</div>
+
+
+<table class="table table-bordered table-striped">
+
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Section Name</th>
+        <th></th>
+
+
+
+    </tr>>
+    @foreach (Books b in @Model)
+    {
+        <tr>
+
+            <td> @b.BookId</td>
+            <td> @b.Name</td>
+            <td>@b.Price</td>
+            <td> @b.Section.Name</td>
+            
+
+        </tr>
+    }
+</table>
+</br>
+<a asp-controller="home" asp-action="index" style="border:solid">Back to home page</a>
+
